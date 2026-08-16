@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 10 - Interfaz de Alex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <h2>AI Automations Studio</h2>
+            <button class="clear-btn" onclick="clearMemory()">Borrar Chat</button>
+        </div>
+        <div id="chat-box"></div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Escribí un mensaje..." onkeypress="if(event.key === 'Enter') handleSend()">
+            <button onclick="handleSend()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
