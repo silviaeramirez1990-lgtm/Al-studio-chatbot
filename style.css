@@ -1,0 +1,124 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 450px;
+    background: #1e293b;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #334155;
+}
+
+.header {
+    background-color: #0284c7;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 { 
+    margin: 0; 
+    font-size: 16px; 
+}
+
+.clear-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+#chat-box {
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #0284c7;
+    color: white;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+
+.gemini-message {
+    background-color: #334155;
+    color: #f8fafc;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+}
+
+.error-message {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+    align-self: center;
+    max-width: 90%;
+    text-align: center;
+    font-size: 13px;
+}
+
+.loading-message {
+    background-color: #1e293b;
+    align-self: flex-start;
+    font-style: italic;
+    color: #94a3b8;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    background: #1e293b;
+    border-top: 1px solid #334155;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #475569;
+    background-color: #0f172a;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
