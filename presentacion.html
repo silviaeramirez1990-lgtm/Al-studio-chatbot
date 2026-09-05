@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automations Studio - Demo</title>
+    <title>AI Automations Studio - Proceso de Trabajo</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -59,7 +59,7 @@
         ul { margin: 0; padding-left: 1.2rem; }
         li { margin-bottom: 0.5rem; }
         
-        /* Estilos de la Demo Interactive WhatsApp */
+        /* Demo Styles */
         .demo-container {
             background-color: #e5ddd5;
             border-radius: 8px;
@@ -74,14 +74,11 @@
             padding: 10px 15px;
             border-radius: 6px 6px 0 0;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         .chat-box {
             background-color: #efeae2;
             padding: 15px;
-            height: 250px;
+            height: 220px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -93,66 +90,51 @@
             border-radius: 8px;
             font-size: 0.9rem;
         }
-        .msg-user {
-            background-color: #dcf8c6;
-            align-self: flex-end;
+        .msg-user { background-color: #dcf8c6; align-self: flex-end; }
+        .msg-bot { background-color: #ffffff; align-self: flex-start; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; justify-content: center; }
+        .btn-quick { background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 15px; cursor: pointer; font-size: 0.85rem; }
+        
+        /* Estilos Pasos de Trabajo */
+        .step-list {
+            list-style: none;
+            padding: 0;
         }
-        .msg-bot {
-            background-color: #ffffff;
-            align-self: flex-start;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        }
-        .btn-group {
+        .step-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f1f5f9;
         }
-        .btn-quick {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-        .btn-quick:hover { background-color: #0056b3; }
-        .before-after-tag {
-            font-size: 0.9rem;
-            font-weight: bold;
-            padding: 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .tag-before { background-color: #fee2e2; color: #991b1b; }
-        .tag-after { background-color: #dcfce7; color: #166534; }
-
-        .cta-container {
-            text-align: center;
-            margin: 2.5rem 0;
-        }
-        .btn-cta {
+        .step-item:last-child { border-bottom: none; }
+        .step-number {
             background-color: #2563eb;
-            color: #ffffff;
-            padding: 1rem 1.8rem;
-            font-size: 1rem;
+            color: white;
             font-weight: bold;
-            border: none;
+            border-radius: 50%;
+            min-width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+        .step-content h3 { margin: 0 0 0.3rem 0; font-size: 1.05rem; color: #0f172a; }
+        .step-content p { margin: 0; color: #475569; font-size: 0.95rem; }
+        .client-commitment {
+            background-color: #f1f5f9;
+            padding: 1rem;
             border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-cta:hover { background-color: #1d4ed8; }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
+            margin-top: 1rem;
             font-size: 0.9rem;
+            color: #334155;
         }
+
+        .cta-container { text-align: center; margin: 2.5rem 0; }
+        .btn-cta { background-color: #2563eb; color: #ffffff; padding: 1rem 1.8rem; font-size: 1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; }
+        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -165,7 +147,6 @@
     <main>
         <section id="para-quien">
             <h2>¿Esta solución es para tu negocio?</h2>
-            
             <div class="box-si">
                 <h3 style="color: #16a34a; margin-top: 0;">Para quién SÍ:</h3>
                 <ul>
@@ -174,7 +155,6 @@
                     <li>Dueños de pymes que calculan costos o presupuestos en planillas desactualizadas y quieren un control ágil.</li>
                 </ul>
             </div>
-
             <div class="box-no">
                 <h3 style="color: #dc2626; margin-top: 0;">Para quién NO:</h3>
                 <ul>
@@ -185,61 +165,83 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DEMO INTERACTIVA (DÍA 5) -->
         <section id="demo">
             <h2>Mirá cómo cambia la operativa de tu negocio</h2>
-            
-            <div class="before-after-tag tag-before">
-                ❌ ANTES: Clientes esperando horas por una respuesta básica mientras acumulás mensajes sin responder.
-            </div>
-
-            <!-- Simulador de WhatsApp -->
             <div class="demo-container">
-                <div class="whatsapp-header">
-                    <span>🟢 Bot Comercial (Demo)</span>
-                </div>
+                <div class="whatsapp-header">🟢 Bot Comercial (Demo)</div>
                 <div class="chat-box" id="chatBox">
-                    <div class="msg msg-bot">¡Hola! 👋 Bienvenido a nuestro comercio. Probá seleccionar una pregunta abajo para ver cómo responde el bot al instante:</div>
+                    <div class="msg msg-bot">¡Hola! 👋 Probá seleccionar una pregunta abajo para ver la respuesta inmediata:</div>
                 </div>
                 <div class="btn-group">
                     <button class="btn-quick" onclick="sendMsg('¿Tienen stock?', '¡Hola! Sí, tenemos stock disponible con envío inmediato. 📦')">¿Tienen stock?</button>
-                    <button class="btn-quick" onclick="sendMsg('¿Qué horarios manejan?', '⏰ Atendemos de Lunes a Sábados de 9:00 a 20:00 hs de corrido.')">¿Horarios de atención?</button>
-                    <button class="btn-quick" onclick="sendMsg('¿Cuáles son los medios de pago?', '💳 Aceptamos efectivo, transferencia con 10% OFF y tarjetas de crédito hasta 3 cuotas sin interés.')">Medios de pago</button>
+                    <button class="btn-quick" onclick="sendMsg('¿Qué horarios manejan?', '⏰ Atendemos de Lunes a Sábados de 9:00 a 20:00 hs.')">¿Horarios?</button>
+                    <button class="btn-quick" onclick="sendMsg('¿Medios de pago?', '💳 Transferencia con 10% OFF y hasta 3 cuotas sin interés.')">Medios de pago</button>
                 </div>
-            </div>
-
-            <div class="before-after-tag tag-after" style="margin-top: 15px;">
-                ✅ DESPUÉS: Atención 24/7 inmediata, cliente informado en 5 segundos y ventas cerradas automáticamente.
-            </div>
-
-            <div class="cta-container" style="margin: 1.5rem 0 0 0;">
-                <a href="#contacto" class="btn-cta">¿Lo ves claro? Agendá 20 minutos y te armo la versión para tu negocio</a>
             </div>
         </section>
 
         <section id="como-trabajo">
-            <h2>Cómo trabajo, paso a paso</h2>
-            <p>1) Reagrupamos tus datos de productos y procesos.<br>
-               2) Configuramos tus bots y tu aplicación a medida.<br>
-               3) Te capacitamos en 1 hora y salimos a producción en un plazo de 7 a 10 días hábiles.</p>
-        </section>
+            <h2>Cómo trabajamos paso a paso</h2>
+            <ul class="step-list">
+                <li class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Reunión inicial de 20 minutos</h3>
+                        <p>Nos conectamos para entender el cuello de botella principal de tu negocio y tus procesos actuales.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Demo adaptada en vivo</h3>
+                        <p>Te muestro en pantalla una prueba funcional adaptada a tu rubro para que veas exactamente cómo va a responder el sistema antes de hablar de dinero.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Propuesta y alcance por escrito</h3>
+                        <p>Definimos con claridad total qué entra en el proyecto, qué no entra y el monto final en la reunión 1:1.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Construcción ágil</h3>
+                        <p>Desarrollo e integro tus bots y planillas en un plazo estimado de 7 a 14 días.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Entrega, capacitación y ajuste</h3>
+                        <p>Te entrego la solución lista, capacito a tu equipo en 1 hora y realizamos 1 ronda de ajustes en base a uso real.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Soporte y continuidad</h3>
+                        <p>El sistema queda corriendo de tu propiedad y te dejo la opción de mantenimiento si tu negocio crece.</p>
+                    </div>
+                </li>
+            </ul>
 
-        <section id="presupuesto">
-            <h2>Cómo armo un presupuesto</h2>
-            <p>Cada negocio tiene un volumen distinto. Cotizamos en base a la complejidad exacta de tu operación.</p>
-            <p>El presupuesto final se conversa abiertamente en una reunión 1:1 de 20 minutos, después de que veas la demo en vivo.</p>
+            <div class="client-commitment">
+                📌 <strong>¿Qué necesito de tu parte?</strong> Solo tus datos básicos de productos/precios y 1 reunión semanal de 30 minutos para validar avances.
+            </div>
         </section>
 
         <section id="faq">
             <h2>Preguntas frecuentes</h2>
             <ul>
                 <li><strong>¿Tengo que saber de tecnología?</strong> No, la app se maneja con botones simples desde el celular.</li>
-                <li><strong>¿Hay licencias caras?</strong> No, usás planes gratuitos o Pro oficiales de la herramienta según tu volumen.</li>
+                <li><strong>¿Hay licencias caras?</strong> No, usás planes oficiales de las herramientas según tu volumen.</li>
                 <li><strong>¿Responde fuera de horario?</strong> Sí, automatiza la atención 24/7 sin interrupción.</li>
             </ul>
         </section>
 
-        <div class="cta-container" id="contacto">
+        <div class="cta-container">
             <a href="#" class="btn-cta">Agendá una reunión de 20 minutos</a>
         </div>
     </main>
@@ -251,17 +253,12 @@
     <script>
         function sendMsg(userText, botText) {
             const chatBox = document.getElementById('chatBox');
-            
-            // Agregar mensaje de usuario
             const userDiv = document.createElement('div');
             userDiv.className = 'msg msg-user';
             userDiv.innerText = userText;
             chatBox.appendChild(userDiv);
-
-            // Scroll al final
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Simular respuesta del bot
             setTimeout(() => {
                 const botDiv = document.createElement('div');
                 botDiv.className = 'msg msg-bot';
