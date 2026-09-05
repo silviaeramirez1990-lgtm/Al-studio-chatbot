@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automations Studio</title>
+    <title>AI Automations Studio - Demo</title>
     <style>
-        /* Estilos base simples y profesionales */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -44,9 +43,6 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         h2 { color: #2563eb; margin-top: 0; }
-        .grid-si-no {
-            display: block;
-        }
         .box-si {
             border-left: 4px solid #16a34a;
             background-color: #f0fdf4;
@@ -62,23 +58,87 @@
         }
         ul { margin: 0; padding-left: 1.2rem; }
         li { margin-bottom: 0.5rem; }
-        .demo-box {
-            background-color: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 6px;
-            color: #64748b;
+        
+        /* Estilos de la Demo Interactive WhatsApp */
+        .demo-container {
+            background-color: #e5ddd5;
+            border-radius: 8px;
+            padding: 1rem;
+            max-width: 450px;
+            margin: 1rem auto;
+            border: 1px solid #cbd5e1;
         }
+        .whatsapp-header {
+            background-color: #075e54;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px 6px 0 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-box {
+            background-color: #efeae2;
+            padding: 15px;
+            height: 250px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .msg {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .msg-user {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+        .msg-bot {
+            background-color: #ffffff;
+            align-self: flex-start;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .btn-quick {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .btn-quick:hover { background-color: #0056b3; }
+        .before-after-tag {
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .tag-before { background-color: #fee2e2; color: #991b1b; }
+        .tag-after { background-color: #dcfce7; color: #166534; }
+
         .cta-container {
             text-align: center;
-            margin: 3rem 0;
+            margin: 2.5rem 0;
         }
         .btn-cta {
             background-color: #2563eb;
             color: #ffffff;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 1rem 1.8rem;
+            font-size: 1rem;
             font-weight: bold;
             border: none;
             border-radius: 6px;
@@ -97,14 +157,12 @@
 </head>
 <body>
 
-    <!-- HERO SECTION (Oferta clara en 8 segundos) -->
     <header>
         <h1>Automatizá las ventas por WhatsApp y la gestión de tu negocio sin volverte loca</h1>
         <p class="hero-subtitle">Implemento bots de respuesta automática y sistemas simples de gestión para que dejes de perder ventas y horas cargando datos a mano.</p>
     </header>
 
     <main>
-        <!-- SECCIÓN: Para quién SÍ y Para quién NO -->
         <section id="para-quien">
             <h2>¿Esta solución es para tu negocio?</h2>
             
@@ -127,15 +185,38 @@
             </div>
         </section>
 
-        <!-- Sección 3: Demo -->
+        <!-- SECCIÓN DEMO INTERACTIVA (DÍA 5) -->
         <section id="demo">
             <h2>Mirá cómo cambia la operativa de tu negocio</h2>
-            <div class="demo-box">
-                <p>[ Aquí irá la Demo Interactiva del flujo de ManyChat + Web App de Glide ]</p>
+            
+            <div class="before-after-tag tag-before">
+                ❌ ANTES: Clientes esperando horas por una respuesta básica mientras acumulás mensajes sin responder.
+            </div>
+
+            <!-- Simulador de WhatsApp -->
+            <div class="demo-container">
+                <div class="whatsapp-header">
+                    <span>🟢 Bot Comercial (Demo)</span>
+                </div>
+                <div class="chat-box" id="chatBox">
+                    <div class="msg msg-bot">¡Hola! 👋 Bienvenido a nuestro comercio. Probá seleccionar una pregunta abajo para ver cómo responde el bot al instante:</div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-quick" onclick="sendMsg('¿Tienen stock?', '¡Hola! Sí, tenemos stock disponible con envío inmediato. 📦')">¿Tienen stock?</button>
+                    <button class="btn-quick" onclick="sendMsg('¿Qué horarios manejan?', '⏰ Atendemos de Lunes a Sábados de 9:00 a 20:00 hs de corrido.')">¿Horarios de atención?</button>
+                    <button class="btn-quick" onclick="sendMsg('¿Cuáles son los medios de pago?', '💳 Aceptamos efectivo, transferencia con 10% OFF y tarjetas de crédito hasta 3 cuotas sin interés.')">Medios de pago</button>
+                </div>
+            </div>
+
+            <div class="before-after-tag tag-after" style="margin-top: 15px;">
+                ✅ DESPUÉS: Atención 24/7 inmediata, cliente informado en 5 segundos y ventas cerradas automáticamente.
+            </div>
+
+            <div class="cta-container" style="margin: 1.5rem 0 0 0;">
+                <a href="#contacto" class="btn-cta">¿Lo ves claro? Agendá 20 minutos y te armo la versión para tu negocio</a>
             </div>
         </section>
 
-        <!-- Sección 4: Cómo trabajo -->
         <section id="como-trabajo">
             <h2>Cómo trabajo, paso a paso</h2>
             <p>1) Reagrupamos tus datos de productos y procesos.<br>
@@ -143,14 +224,12 @@
                3) Te capacitamos en 1 hora y salimos a producción en un plazo de 7 a 10 días hábiles.</p>
         </section>
 
-        <!-- Sección 5: Presupuesto -->
         <section id="presupuesto">
             <h2>Cómo armo un presupuesto</h2>
             <p>Cada negocio tiene un volumen distinto. Cotizamos en base a la complejidad exacta de tu operación.</p>
             <p>El presupuesto final se conversa abiertamente en una reunión 1:1 de 20 minutos, después de que veas la demo en vivo.</p>
         </section>
 
-        <!-- Sección 6: Preguntas frecuentes -->
         <section id="faq">
             <h2>Preguntas frecuentes</h2>
             <ul>
@@ -160,8 +239,7 @@
             </ul>
         </section>
 
-        <!-- Sección 7: CTA / Botón de Agendamiento -->
-        <div class="cta-container">
+        <div class="cta-container" id="contacto">
             <a href="#" class="btn-cta">Agendá una reunión de 20 minutos</a>
         </div>
     </main>
@@ -170,5 +248,28 @@
         <p>&copy; 2026 AI Automations Studio - Todos los derechos reservados</p>
     </footer>
 
+    <script>
+        function sendMsg(userText, botText) {
+            const chatBox = document.getElementById('chatBox');
+            
+            // Agregar mensaje de usuario
+            const userDiv = document.createElement('div');
+            userDiv.className = 'msg msg-user';
+            userDiv.innerText = userText;
+            chatBox.appendChild(userDiv);
+
+            // Scroll al final
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Simular respuesta del bot
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'msg msg-bot';
+                botDiv.innerText = botText;
+                chatBox.appendChild(botDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 400);
+        }
+    </script>
 </body>
 </html>
