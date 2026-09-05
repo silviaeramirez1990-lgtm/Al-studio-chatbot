@@ -17,12 +17,20 @@
         header {
             background-color: #0f172a;
             color: #ffffff;
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
             text-align: center;
         }
-        header h1 { margin: 0; font-size: 2rem; }
-        header p { color: #94a3b8; margin-top: 0.5rem; }
-        
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+        header p.hero-subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 1.5rem auto;
+        }
         main {
             max-width: 800px;
             margin: 0 auto;
@@ -36,6 +44,24 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         h2 { color: #2563eb; margin-top: 0; }
+        .grid-si-no {
+            display: block;
+        }
+        .box-si {
+            border-left: 4px solid #16a34a;
+            background-color: #f0fdf4;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .box-no {
+            border-left: 4px solid #dc2626;
+            background-color: #fef2f2;
+            padding: 1rem 1.2rem;
+            border-radius: 0 6px 6px 0;
+        }
+        ul { margin: 0; padding-left: 1.2rem; }
+        li { margin-bottom: 0.5rem; }
         .demo-box {
             background-color: #f1f5f9;
             border: 2px dashed #cbd5e1;
@@ -71,27 +97,37 @@
 </head>
 <body>
 
+    <!-- HERO SECTION (Oferta clara en 8 segundos) -->
     <header>
-        <h1>AI Automations Studio</h1>
-        <p>Automatizaciones con Inteligencia Artificial para simplificar tu negocio</p>
+        <h1>Automatizá las ventas por WhatsApp y la gestión de tu negocio sin volverte loca</h1>
+        <p class="hero-subtitle">Implemento bots de respuesta automática y sistemas simples de gestión para que dejes de perder ventas y horas cargando datos a mano.</p>
     </header>
 
     <main>
-        <!-- Sección 1: Quién soy y qué ofrezco -->
-        <section id="quien-soy">
-            <h2>Quién soy y qué ofrezco</h2>
-            <p>Soy la creadora de AI Automations Studio y ayudo a pymes y comercios a liberarse del trabajo manual repetitivo.</p>
-            <p>Implemento soluciones prácticas para automatizar la atención a tus clientes y tener el control total de tu gestión diaria.</p>
-        </section>
-
-        <!-- Sección 2: Para quién sí / Para quién no -->
+        <!-- SECCIÓN: Para quién SÍ y Para quién NO -->
         <section id="para-quien">
             <h2>¿Esta solución es para tu negocio?</h2>
-            <p><strong>Para quién SÍ:</strong> Locales, comercios o pymes que reciben muchas consultas por WhatsApp e Instagram y pierden tiempo calculando costos en planillas desactualizadas.</p>
-            <p><strong>Para quién NO:</strong> Negocios que buscan desarrollos gigantes a medida, consultoría teórica o solucionar problemas sin involucrar a su equipo.</p>
+            
+            <div class="box-si">
+                <h3 style="color: #16a34a; margin-top: 0;">Para quién SÍ:</h3>
+                <ul>
+                    <li>Locales y comercios que reciben decenas de mensajes repetitivos por WhatsApp e Instagram todos los días.</li>
+                    <li>Negocios con venta al público o servicios que necesitan automatizar respuestas frecuentes y captura de prospectos.</li>
+                    <li>Dueños de pymes que calculan costos o presupuestos en planillas desactualizadas y quieren un control ágil.</li>
+                </ul>
+            </div>
+
+            <div class="box-no">
+                <h3 style="color: #dc2626; margin-top: 0;">Para quién NO:</h3>
+                <ul>
+                    <li>Empresas gigantes que buscan sistemas hipercomplejos con meses de desarrollo.</li>
+                    <li>Emprendedores que buscan únicamente teoría o asesoramiento sin ejecutar soluciones reales.</li>
+                    <li>Negocios que no están dispuestos a dedicar 1 hora para capacitar a su equipo.</li>
+                </ul>
+            </div>
         </section>
 
-        <!-- Sección 3: Demo (Antes y Después) -->
+        <!-- Sección 3: Demo -->
         <section id="demo">
             <h2>Mirá cómo cambia la operativa de tu negocio</h2>
             <div class="demo-box">
@@ -107,7 +143,7 @@
                3) Te capacitamos en 1 hora y salimos a producción en un plazo de 7 a 10 días hábiles.</p>
         </section>
 
-        <!-- Sección 5: Cómo armo un presupuesto -->
+        <!-- Sección 5: Presupuesto -->
         <section id="presupuesto">
             <h2>Cómo armo un presupuesto</h2>
             <p>Cada negocio tiene un volumen distinto. Cotizamos en base a la complejidad exacta de tu operación.</p>
