@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automations Studio - Presupuesto e Inversión</title>
+    <title>AI Automations Studio - Preguntas Frecuentes</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -95,6 +95,23 @@
         .step-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 1rem; }
         .step-number { background-color: #2563eb; color: white; font-weight: bold; border-radius: 50%; min-width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
         
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question {
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 0.4rem;
+        }
+        .faq-answer {
+            color: #475569;
+            margin: 0;
+        }
+
         .cta-container { text-align: center; margin: 2rem 0; }
         .btn-cta { background-color: #2563eb; color: #ffffff; padding: 1rem 1.8rem; font-size: 1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; }
         .btn-cta:hover { background-color: #1d4ed8; }
@@ -149,29 +166,64 @@
             <ul class="step-list">
                 <li class="step-item"><div class="step-number">1</div><div><strong>Reunión inicial de 20 min:</strong> Entendemos tu problema.</div></li>
                 <li class="step-item"><div class="step-number">2</div><div><strong>Demo adaptada:</strong> La probás antes de hablar de dinero.</div></li>
-                <li class="step-item"><div class="step-number">3</div><div><strong>Alcance por escrito:</strong> Mención explícita de la inversión en la 1:1.</div></li>
+                <li class="step-item"><div class="step-number">3</div><div><strong>Alcance por escrito:</strong> Cotización exacta en la 1:1.</div></li>
                 <li class="step-item"><div class="step-number">4</div><div><strong>Construcción:</strong> Entrega entre 7 y 14 días.</div></li>
             </ul>
         </section>
 
-        <!-- SECCIÓN PRESUPUESTO PÚBLICO (DÍA 7) -->
         <section id="presupuesto">
             <h2>Cómo se arma la inversión</h2>
             <p>Cada negocio tiene un volumen y una complejidad distinta, por eso no publico números enlatados ni tarifas genéricas. La inversión se cotiza de forma transparente únicamente después de que probás la demo adaptada a tu rubro.</p>
-            <p>Analizamos las variables reales de tu operación: volumen de mensajes, integraciones requeridas y nivel de soporte. Sin sorpresas ni costos ocultos. El único camino para conocer el monto exacto es reservando una breve charla 1:1.</p>
+            <p>Analizamos las variables reales de tu operación: volumen de mensajes, integraciones requeridas y nivel de soporte. Sin sorpresas ni costos ocultos.</p>
+        </section>
+
+        <!-- SECCIÓN PREGUNTAS FRECUENTES (DÍA 8) -->
+        <section id="faq">
+            <h2>Preguntas Frecuentes</h2>
             
+            <div class="faq-item">
+                <div class="faq-question">¿Cuánto sale la solución?</div>
+                <p class="faq-answer">Lo vemos en una reunión de 20 minutos, justo después de que veas la demo en vivo. Así cotizamos tu caso particular y no un número genérico colgado en la web.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Pasame el número por acá y después vemos...</div>
+                <p class="faq-answer">Si te paso un precio sin que veas qué incluye, vamos a estar hablando de cosas distintas. Empezá por la demo para ver si te sirve y después coordinamos.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Cuánto tiempo lleva tenerlo listo?</div>
+                <p class="faq-answer">Entre 7 y 14 días desde que aprobás la propuesta y me pasás la información base de tu negocio.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Servirá para mi rubro?</div>
+                <p class="faq-answer">Si vendés productos o servicios y tu WhatsApp explota de mensajes repetitivos o tenés planillas desordenadas, sí, funciona para tu rubro.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Y si no funciona como esperaba?</div>
+                <p class="faq-answer">Por eso mismo hacemos una prueba previa con datos reales de tu negocio antes de avanzar. No comprás nada a ciegas.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Me quedo trabada después si no entiendo la tecnología?</div>
+                <p class="faq-answer">Para nada. Te capacito a vos y a tu equipo en 1 hora con una pantalla muy simple de usar. Además, te incluyo soporte post-entrega.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Tengo que pagar mensualidades o licencias caras?</div>
+                <p class="faq-answer">No de mi parte. La automatización es tuya. Si usás herramientas externas, usás sus planes oficiales sin sobreprecio.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Qué tengo que hacer para empezar?</div>
+                <p class="faq-answer">Tocar el botón de abajo, agendar 20 minutos y vemos tu caso sin ningún compromiso.</p>
+            </div>
+
             <div class="cta-container">
                 <a href="https://wa.me/54911XXXXXXXX" target="_blank" class="btn-cta">Agendá la reunión de 20 minutos</a>
             </div>
-        </section>
-
-        <section id="faq">
-            <h2>Preguntas frecuentes</h2>
-            <ul>
-                <li><strong>¿Tengo que saber de tecnología?</strong> No, la app se maneja con botones simples desde el celular.</li>
-                <li><strong>¿Hay licencias caras?</strong> No, usás planes oficiales de las herramientas según tu volumen.</li>
-                <li><strong>¿Responde fuera de horario?</strong> Sí, automatiza la atención 24/7 sin interrupción.</li>
-            </ul>
         </section>
     </main>
 
