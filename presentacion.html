@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automations Studio - Preguntas Frecuentes</title>
+    <title>AI Automations Studio - Soluciones de Automatización</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -16,44 +19,45 @@
         header {
             background-color: #0f172a;
             color: #ffffff;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1rem;
             text-align: center;
         }
         header h1 {
             margin: 0 0 1rem 0;
-            font-size: 2.2rem;
-            line-height: 1.2;
+            font-size: 1.8rem;
+            line-height: 1.25;
         }
         header p.hero-subtitle {
             color: #94a3b8;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             max-width: 650px;
             margin: 0 auto 1.5rem auto;
         }
         main {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
         }
         section {
             background: #ffffff;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
-        h2 { color: #2563eb; margin-top: 0; }
+        h2 { color: #2563eb; margin-top: 0; font-size: 1.4rem; }
+        
         .box-si {
             border-left: 4px solid #16a34a;
             background-color: #f0fdf4;
-            padding: 1rem 1.2rem;
+            padding: 1rem;
             margin-bottom: 1rem;
             border-radius: 0 6px 6px 0;
         }
         .box-no {
             border-left: 4px solid #dc2626;
             background-color: #fef2f2;
-            padding: 1rem 1.2rem;
+            padding: 1rem;
             border-radius: 0 6px 6px 0;
         }
         ul { margin: 0; padding-left: 1.2rem; }
@@ -63,37 +67,38 @@
         .demo-container {
             background-color: #e5ddd5;
             border-radius: 8px;
-            padding: 1rem;
-            max-width: 450px;
+            padding: 0.75rem;
+            max-width: 100%;
             margin: 1rem auto;
             border: 1px solid #cbd5e1;
         }
         .whatsapp-header {
             background-color: #075e54;
             color: white;
-            padding: 10px 15px;
+            padding: 10px 12px;
             border-radius: 6px 6px 0 0;
             font-weight: bold;
+            font-size: 0.95rem;
         }
         .chat-box {
             background-color: #efeae2;
-            padding: 15px;
-            height: 200px;
+            padding: 12px;
+            height: 210px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        .msg { max-width: 80%; padding: 8px 12px; border-radius: 8px; font-size: 0.9rem; }
+        .msg { max-width: 85%; padding: 8px 12px; border-radius: 8px; font-size: 0.88rem; word-wrap: break-word; }
         .msg-user { background-color: #dcf8c6; align-self: flex-end; }
         .msg-bot { background-color: #ffffff; align-self: flex-start; box-shadow: 0 1px 1px rgba(0,0,0,0.1); }
-        .btn-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; justify-content: center; }
-        .btn-quick { background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 15px; cursor: pointer; font-size: 0.85rem; }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; justify-content: center; }
+        .btn-quick { background-color: #007bff; color: white; border: none; padding: 8px 12px; border-radius: 15px; cursor: pointer; font-size: 0.82rem; width: 100%; }
         
         /* Steps */
         .step-list { list-style: none; padding: 0; }
-        .step-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 1rem; }
-        .step-number { background-color: #2563eb; color: white; font-weight: bold; border-radius: 50%; min-width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+        .step-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem; }
+        .step-number { background-color: #2563eb; color: white; font-weight: bold; border-radius: 50%; min-width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
         
         /* FAQ Styles */
         .faq-item {
@@ -106,16 +111,26 @@
             font-weight: bold;
             color: #0f172a;
             margin-bottom: 0.4rem;
+            font-size: 0.98rem;
         }
         .faq-answer {
             color: #475569;
             margin: 0;
+            font-size: 0.92rem;
         }
 
         .cta-container { text-align: center; margin: 2rem 0; }
-        .btn-cta { background-color: #2563eb; color: #ffffff; padding: 1rem 1.8rem; font-size: 1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; }
-        .btn-cta:hover { background-color: #1d4ed8; }
-        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem; }
+        .btn-cta { background-color: #2563eb; color: #ffffff; padding: 0.9rem 1.4rem; font-size: 0.98rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-decoration: none; display: block; width: 100%; text-align: center; }
+        footer { text-align: center; padding: 1.5rem; color: #64748b; font-size: 0.85rem; }
+
+        /* Pantallas medianas y grandes */
+        @media (min-width: 640px) {
+            header h1 { font-size: 2.2rem; }
+            header p.hero-subtitle { font-size: 1.15rem; }
+            section { padding: 1.75rem; }
+            .btn-quick { width: auto; }
+            .btn-cta { display: inline-block; width: auto; padding: 1rem 1.8rem; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -129,7 +144,7 @@
         <section id="para-quien">
             <h2>¿Esta solución es para tu negocio?</h2>
             <div class="box-si">
-                <h3 style="color: #16a34a; margin-top: 0;">Para quién SÍ:</h3>
+                <h3 style="color: #16a34a; margin-top: 0; font-size: 1.1rem;">Para quién SÍ:</h3>
                 <ul>
                     <li>Locales y comercios que reciben decenas de mensajes repetitivos por WhatsApp e Instagram todos los días.</li>
                     <li>Negocios con venta al público o servicios que necesitan automatizar respuestas frecuentes y captura de prospectos.</li>
@@ -137,7 +152,7 @@
                 </ul>
             </div>
             <div class="box-no">
-                <h3 style="color: #dc2626; margin-top: 0;">Para quién NO:</h3>
+                <h3 style="color: #dc2626; margin-top: 0; font-size: 1.1rem;">Para quién NO:</h3>
                 <ul>
                     <li>Empresas gigantes que buscan sistemas hipercomplejos con meses de desarrollo.</li>
                     <li>Emprendedores que buscan únicamente teoría o asesoramiento sin ejecutar soluciones reales.</li>
@@ -177,7 +192,6 @@
             <p>Analizamos las variables reales de tu operación: volumen de mensajes, integraciones requeridas y nivel de soporte. Sin sorpresas ni costos ocultos.</p>
         </section>
 
-        <!-- SECCIÓN PREGUNTAS FRECUENTES (DÍA 8) -->
         <section id="faq">
             <h2>Preguntas Frecuentes</h2>
             
@@ -192,6 +206,16 @@
             </div>
 
             <div class="faq-item">
+                <div class="faq-question">¿Tengo que instalar algún programa raro en mi computadora o celular?</div>
+                <p class="faq-answer">Para nada. Todo funciona sobre las herramientas que ya usás (como WhatsApp o la web), accesible desde tu navegador habitual sin descargas raras.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Mis datos y los de mis clientes están seguros?</div>
+                <p class="faq-answer">Sí, el sistema trabaja con conexiones oficiales y la información pertenece 100% a tu negocio. No se comparte ni se revende ningún dato.</p>
+            </div>
+
+            <div class="faq-item">
                 <div class="faq-question">¿Cuánto tiempo lleva tenerlo listo?</div>
                 <p class="faq-answer">Entre 7 y 14 días desde que aprobás la propuesta y me pasás la información base de tu negocio.</p>
             </div>
@@ -202,23 +226,8 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">¿Y si no funciona como esperaba?</div>
-                <p class="faq-answer">Por eso mismo hacemos una prueba previa con datos reales de tu negocio antes de avanzar. No comprás nada a ciegas.</p>
-            </div>
-
-            <div class="faq-item">
                 <div class="faq-question">¿Me quedo trabada después si no entiendo la tecnología?</div>
                 <p class="faq-answer">Para nada. Te capacito a vos y a tu equipo en 1 hora con una pantalla muy simple de usar. Además, te incluyo soporte post-entrega.</p>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">¿Tengo que pagar mensualidades o licencias caras?</div>
-                <p class="faq-answer">No de mi parte. La automatización es tuya. Si usás herramientas externas, usás sus planes oficiales sin sobreprecio.</p>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">¿Qué tengo que hacer para empezar?</div>
-                <p class="faq-answer">Tocar el botón de abajo, agendar 20 minutos y vemos tu caso sin ningún compromiso.</p>
             </div>
 
             <div class="cta-container">
