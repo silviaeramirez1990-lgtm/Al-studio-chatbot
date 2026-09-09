@@ -96,11 +96,9 @@
 
         const data = await response.json();
         
-        // Extracción ultra segura y compatible del texto de Gemini
-        const respuestaTexto = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        
-        if (respuestaTexto) {
-          botMsg.innerText = respuestaTexto;
+        // Extracción limpia y sin errores de sintaxis
+        if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+          botMsg.innerText = data.candidates[0].content.parts[0].text;
         } else {
           botMsg.innerText = "Disculpame, se me complicó la conexión un segundo. ¿Me repetís la consulta?";
         }
