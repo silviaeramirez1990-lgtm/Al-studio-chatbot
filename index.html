@@ -60,46 +60,26 @@
   <script>
     function sendMessage() {
       const input = document.getElementById('userInput');
-      const text = input.value.trim().toLowerCase();
+      const text = input.value.trim();
       if (!text) return;
 
       const chat = document.getElementById('chat');
-      
-      // Mostrar mensaje del usuario
       const userMsg = document.createElement('div');
       userMsg.className = 'chat-message user-msg';
-      userMsg.innerText = input.value.trim();
+      userMsg.innerText = text;
       chat.appendChild(userMsg);
 
       input.value = '';
-      chat.scrollTop = chat.scrollHeight;
-
-      // Crear burbuja de espera
-      const botMsg = document.createElement('div');
-      botMsg.className = 'chat-message bot-msg';
-      botMsg.innerText = 'Escribiendo...';
-      chat.appendChild(botMsg);
-      chat.scrollTop = chat.scrollHeight;
 
       setTimeout(() => {
-        let respuesta = "¡Hola! Qué bueno que nos escribas. Contame, ¿qué tipo de negocio tenés así te asesoro mejor con nuestras automatizaciones?";
-
-        // Sistema inteligente de detección de palabras clave comerciales
-        if (text.includes('precio') || text.includes('cuanto cuesta') || text.includes('costo') || text.includes('presupuesto')) {
-          respuesta = "Che, te cuento: no manejamos precios fijos ni números publicados porque cada automatización se arma 100% a medida de tu negocio. Lo ideal es coordinar una reunión estratégica de 20 minutos sin cargo para armarte el presupuesto exacto. ¿Te gustaría agendar?";
-        } else if (text.includes('servicio') || text.includes('que hacen') || text.includes('ofrecen') || text.includes('bot') || text.includes('chatbot')) {
-          respuesta = "¡De todo! En AI Automations Studio armamos chatbots para WhatsApp que responden stock y turnos, automatizaciones de atención al cliente y paneles de gestión interna. Todo listo en menos de 10 días hábiles.";
-        } else if (text.includes('tiempo') || text.includes('tardan') || text.includes('demora') || text.includes('dias')) {
-          respuesta = "Nuestros prototipos comerciales y chatbots quedan funcionando en menos de 10 días hábiles, listos para que los empieces a usar.";
-        } else if (text.includes('hola') || text.includes('buenas') || text.includes('saludos')) {
-          respuesta = "¡Hola! ¿Cómo va todo? Soy Alex. Decime, ¿estás buscando optimizar la atención de tu negocio con Inteligencia Artificial?";
-        } else if (text.includes('gracias') || text.includes('dale') || text.includes('bueno')) {
-          respuesta = "¡De nada! Si te interesa dar el siguiente paso, tocá el botón de agendar acá abajo y reservamos tus 20 minutos.";
-        }
-
-        botMsg.innerText = respuesta;
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-message bot-msg';
+        botMsg.innerText = '¡Gracias por contactarte! Un asesor revisará tu solicitud para darte una atención personalizada.';
+        chat.appendChild(botMsg);
         chat.scrollTop = chat.scrollHeight;
-      }, 700);
+      }, 800);
+
+      chat.scrollTop = chat.scrollHeight;
     }
 
     function handleKey(e) {
