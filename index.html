@@ -58,27 +58,54 @@
   </div>
 
   <script>
-    function sendMessage() {
+    const API_KEY = "AQ.Ab8RN6IVc0nnMQwynoVkIPfu_N7X0x1_TDH-AdVG1YeKlMLhNA"; 
+
+    const SYSTEM_INSTRUCTION = "Sos Alex, el Agente Comercial inteligente de 'AI Automations Studio'. Tu objetivo es conversar con potenciales clientes (dueños de negocios, pymes, profesionales) que visitan la web. Responde de forma muy profesional, cordial, concisa y usando modismos de Argentina (de manera sutil). Contá que hacemos chatbots para WhatsApp, automatizaciones de atención y control de stock en menos de 10 días. Si te preguntan precios, NO des números; explicales amablemente que cada presupuesto se arma a medida según la complejidad en una reunión estratégica de 20 minutos, e invitalos a tocar el botón de agendar que está abajo en la página.";
+
+    async function sendMessage() {
       const input = document.getElementById('userInput');
       const text = input.value.trim();
       if (!text) return;
 
       const chat = document.getElementById('chat');
+      
       const userMsg = document.createElement('div');
       userMsg.className = 'chat-message user-msg';
       userMsg.innerText = text;
       chat.appendChild(userMsg);
 
       input.value = '';
+      chat.scrollTop = chat.scrollHeight;
 
-      setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-message bot-msg';
-        botMsg.innerText = '¡Gracias por contactarte! Un asesor revisará tu solicitud para darte una atención personalizada.';
-        chat.appendChild(botMsg);
-        chat.scrollTop = chat.scrollHeight;
-      }, 800);
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-message bot-msg';
+      botMsg.innerText = 'Escribiendo...';
+      chat.appendChild(botMsg);
+      chat.scrollTop = chat.scrollHeight;
 
+      try {
+        const response = await fetch(`https://googleapis.com{API_KEY}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: text }] }],
+            systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+            generationConfig: { maxOutputTokens: 150, temperature: 0.7 }
+          })
+        });
+
+        const data = await response.json();
+        
+        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] && data.candidates[0].content.parts[0].text) {
+          botMsg.innerText = data.candidates[0].content.parts[0].text;
+        } else {
+          botMsg.innerText = "Disculpame, se me complicó la conexión por un segundo. ¿Me podés repetir la consulta?";
+        }
+      } catch (error) {
+        console.error(error);
+        botMsg.innerText = "Hubo un error de conexión. Por favor, intentá nuevamente.";
+      }
+      
       chat.scrollTop = chat.scrollHeight;
     }
 
