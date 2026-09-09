@@ -60,7 +60,7 @@
   <script>
     const API_KEY = "AQ.Ab8RN6IVc0nnMQwynoVkIPfu_N7X0x1_TDH-AdVG1YeKlMLhNA"; 
 
-    const SYSTEM_INSTRUCTION = "Sos Alex, el Agente Comercial inteligente de 'AI Automations Studio'. Tu objetivo es conversar con potenciales clientes (dueños de negocios, pymes, profesionales) que visitan la web. Responde de forma muy profesional, cordial, concisa y usando modismos de Argentina (de manera sutil). Contá que hacemos chatbots para WhatsApp, automatizaciones de atención y control de stock en menos de 10 días. Si te preguntan precios, NO des números; explicales amablemente que cada presupuesto se arma a medida según la complejidad en una reunión estratégica de 20 minutos, e invitalos a tocar el botón de agendar que está abajo en la página.";
+    const SYSTEM_INSTRUCTION = "Sos Alex, el Agente Comercial de 'AI Automations Studio'. Hablá como argentino cordial. Ofrecé chatbots para WhatsApp, automatizaciones y control de stock en menos de 10 días. No des precios numéricos, decí que se arman a medida en una reunión de 20 minutos e invitalos a agendar abajo.";
 
     async function sendMessage() {
       const input = document.getElementById('userInput');
@@ -90,20 +90,23 @@
           body: JSON.stringify({
             contents: [{ parts: [{ text: text }] }],
             systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
-            generationConfig: { maxOutputTokens: 150, temperature: 0.7 }
+            generationConfig: { maxOutputTokens: 100, temperature: 0.7 }
           })
         });
 
         const data = await response.json();
         
-        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] && data.candidates[0].content.parts[0].text) {
-          botMsg.innerText = data.candidates[0].content.parts[0].text;
+        // Extracción ultra segura y compatible del texto de Gemini
+        const respuestaTexto = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        
+        if (respuestaTexto) {
+          botMsg.innerText = respuestaTexto;
         } else {
-          botMsg.innerText = "Disculpame, se me complicó la conexión por un segundo. ¿Me podés repetir la consulta?";
+          botMsg.innerText = "Disculpame, se me complicó la conexión un segundo. ¿Me repetís la consulta?";
         }
       } catch (error) {
         console.error(error);
-        botMsg.innerText = "Hubo un error de conexión. Por favor, intentá nuevamente.";
+        botMsg.innerText = "Hubo una pequeña interrupción en la señal. Probá escribirme de nuevo.";
       }
       
       chat.scrollTop = chat.scrollHeight;
